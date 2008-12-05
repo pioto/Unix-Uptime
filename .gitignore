@@ -1,0 +1,8 @@
+.*.swp
+Build
+_build
+blib
+META.yml
+MANIFEST
+Unix-Uptime-*.tar*
+*.bak
