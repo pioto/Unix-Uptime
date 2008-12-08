@@ -97,5 +97,12 @@ Contributions for other operating systems would be welcome.
 
 Mike Kelly <pioto@pioto.org>
 
+=head1 COPYRIGHT AND LICENSE
+
+Copyright 2008 Mike Kelly
+
+Distributed under the same terms as Perl itself. See
+L<http://dev.perl.org/licenses/> for more information.
+
 =cut
 # vim: set ft=perl sw=4 sts=4 et :

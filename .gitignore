@@ -5,4 +5,5 @@ blib
 META.yml
 MANIFEST
 Unix-Uptime-*.tar*
+Unix-Uptime-*.*/
 *.bak
