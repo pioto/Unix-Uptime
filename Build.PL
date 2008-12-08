@@ -61,6 +61,11 @@ my $build = $class->new(
     build_requires  => {
         'Module::Build' => 0.28,
     },
+    meta_merge => {
+        resources => {
+            repository => 'http://git.pioto.org/?p=Unix-Uptime.git',
+        },
+    },
 );
 $build->create_build_script();
 
