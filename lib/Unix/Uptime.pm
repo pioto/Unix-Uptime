@@ -1,3 +1,24 @@
+package Unix::Uptime;
+
+use warnings;
+use strict;
+
+our $VERSION='0.1';
+
+my %modules = (
+    freebsd => 'FreeBSD',
+    linux   => 'Linux',
+);
+
+my $module = $modules{$^O};
+
+require "Unix/Uptime/$module.pm";
+our @ISA = "Unix::Uptime::$module";
+
+1;
+
+__END__
+
 =head1 NAME
 
 Unix::Uptime - Determine the current uptime, in seconds, across
@@ -24,35 +45,11 @@ systems, though.
 
 The following static (class) methods are available:
 
-=cut
-
-package Unix::Uptime;
-
-use warnings;
-use strict;
-
-our $VERSION='0.1';
-
 =head2 uptime()
 
 This takes no arguments, and simply returns the number of seconds this
 system has been running. Depending on the operating system, this could
 be a whole integer, or a floating point number.
-
-=cut
-sub uptime {
-    my $class = _os_class();
-
-    return $class->uptime();
-}
-
-# Figure out the right package name for the current os.
-sub _os_class {
-    my $os = $^O;
-    $os =~ s/^(.)/\U$1/;
-    my $os_class = "Unix::Uptime::$os";
-    return $os_class;
-}
 
 =head1 SEE ALSO
 
@@ -77,33 +74,5 @@ Distributed under the same terms as Perl itself. See
 L<http://dev.perl.org/licenses/> for more information.
 
 =cut
-
-####
-# FreeBSD-specific functions
-package Unix::Uptime::Freebsd;
-
-sub uptime {
-    my $class = shift;
-    
-    my $boottime = `sysctl kern.boottime`;
-    my ($boot_seconds) = $boottime =~ /\s+sec\s+=\s+(\d+),/;
-    my $time = time();
-    my $uptime = $time - $boot_seconds;
-    return $uptime;
-}
-
-####
-# Linux-specific functions
-package Unix::Uptime::Linux;
-
-sub uptime {
-    my $class = shift;
-    open my $proc_uptime, '<', '/proc/uptime'
-        or die "Failed to open /proc/uptime: $!";
-
-    my $line = <$proc_uptime>;
-    my ($uptime) = $line =~ /^(\d+(\.\d+)?)/;
-    return $uptime;
-}
 
 # vim: set ft=perl sw=4 sts=4 et :
