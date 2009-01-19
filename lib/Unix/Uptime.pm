@@ -13,7 +13,7 @@ my %modules = (
 my $module = $modules{$^O};
 
 require "Unix/Uptime/$module.pm";
-our @ISA = "Unix::Uptime::$module";
+our @ISA = ("Unix::Uptime::$module");
 
 1;
 
@@ -62,13 +62,21 @@ L<Win32::Uptime> for Win32.
 This currently doesn't support more than Linux and FreeBSD.
 Contributions for other operating systems would be welcome.
 
+=head1 CONTRIBUTING
+
+This project is developed using git. The repository may be browsed at:
+L<http://git.pioto.org/gitweb/Unix-Uptime.git>
+
+Patches in git-format-patch style are preferred. Either send them to me
+by email, or open an RT ticket.
+
 =head1 AUTHOR
 
 Mike Kelly <pioto@pioto.org>
 
 =head1 COPYRIGHT AND LICENSE
 
-Copyright 2008 Mike Kelly
+Copyright 2008, 2009 Mike Kelly
 
 Distributed under the same terms as Perl itself. See
 L<http://dev.perl.org/licenses/> for more information.

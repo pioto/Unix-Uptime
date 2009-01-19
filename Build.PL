@@ -63,7 +63,7 @@ my $build = $class->new(
     },
     meta_merge => {
         resources => {
-            repository => 'http://git.pioto.org/?p=Unix-Uptime.git',
+            repository => 'http://git.pioto.org/gitweb/Unix-Uptime.git',
         },
     },
 );
