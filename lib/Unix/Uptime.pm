@@ -54,6 +54,30 @@ sub _os_class {
     return $os_class;
 }
 
+=head1 SEE ALSO
+
+L<Sys::Load>(3) and L<Sys::Uptime>(3) for Linux-specific implementations.
+
+L<Win32::Uptime> for Win32.
+
+=head1 BUGS
+
+This currently doesn't support more than Linux and FreeBSD.
+Contributions for other operating systems would be welcome.
+
+=head1 AUTHOR
+
+Mike Kelly <pioto@pioto.org>
+
+=head1 COPYRIGHT AND LICENSE
+
+Copyright 2008 Mike Kelly
+
+Distributed under the same terms as Perl itself. See
+L<http://dev.perl.org/licenses/> for more information.
+
+=cut
+
 ####
 # FreeBSD-specific functions
 package Unix::Uptime::Freebsd;
@@ -82,27 +106,4 @@ sub uptime {
     return $uptime;
 }
 
-=head1 SEE ALSO
-
-L<Sys::Load>(3) and L<Sys::Uptime>(3) for Linux-specific implementations.
-
-L<Win32::Uptime> for Win32.
-
-=head1 BUGS
-
-This currently doesn't support more than Linux and FreeBSD.
-Contributions for other operating systems would be welcome.
-
-=head1 AUTHOR
-
-Mike Kelly <pioto@pioto.org>
-
-=head1 COPYRIGHT AND LICENSE
-
-Copyright 2008 Mike Kelly
-
-Distributed under the same terms as Perl itself. See
-L<http://dev.perl.org/licenses/> for more information.
-
-=cut
 # vim: set ft=perl sw=4 sts=4 et :
