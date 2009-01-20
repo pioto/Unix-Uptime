@@ -15,6 +15,23 @@ my $module = $modules{$^O};
 require "Unix/Uptime/$module.pm";
 our @ISA = ("Unix::Uptime::$module");
 
+my $hires;
+
+sub want_hires {
+    my $class = shift;
+
+    return $hires;
+}
+
+sub import {
+    my $class = shift;
+    if (grep {$_ eq ':hires'} @_) {
+        $hires = 1;
+        "Unix::Uptime::$module"->can('load_hires')
+            and "Unix::Uptime::$module"->load_hires();
+    }
+}
+
 1;
 
 __END__
@@ -26,9 +43,15 @@ different *NIX architectures
 
 =head1 SYNOPSIS
 
+  # Standard Usage
   use Unix::Uptime;
   
-  my $uptime = Unix::Uptime->uptime();
+  my $uptime = Unix::Uptime->uptime(); # 2345
+
+  # "HiRes" mode
+  use Unix::Uptime qw(:hires);
+
+  my $uptime = Unix::Uptime->uptime(); # 2345.123593
 
 =head1 DESCRIPTION
 
@@ -40,6 +63,13 @@ are pleanty of modules on CPAN already.
 Currently, this module just supports getting the uptime on Linux and
 FreeBSD. It should be easy enough to add support for other operating
 systems, though.
+
+=head1 OPTIONS
+
+While this module doesn't provide any functions for exporting, if the
+tag C<:hires> is given, then the times returned will be returned as
+decimal numbers when possible. This will likely require the Time::HiRes
+module to be available. Otherwise, they will simply be whole seconds.
 
 =head1 METHODS
 
