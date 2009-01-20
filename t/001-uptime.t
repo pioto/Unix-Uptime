@@ -2,7 +2,7 @@
 use warnings;
 use strict;
 
-use Test::More tests => 10;
+use Test::More tests => 12;
 
 use Unix::Uptime;
 
@@ -19,6 +19,10 @@ my $SLEEP_TIME = 2;
     ok my $new_uptime = Unix::Uptime->uptime(), 'received an uptime';
     like $new_uptime, qr/^\d+$/, 'uptime looks right';
     cmp_ok $new_uptime, '>=', $uptime+$SLEEP_TIME, 'time passes properly';
+
+    my $pretty_uptime = `uptime`;
+    my ($up_days) = $pretty_uptime =~ /up (\d+) days?/;
+    is (int($uptime / (60*60*24)), $up_days, 'uptime matches /bin/uptime');
 }
 
 # "HiRes" mode
@@ -34,6 +38,10 @@ my $SLEEP_TIME = 2;
     ok my $new_uptime = Unix::Uptime->uptime(), 'received an uptime';
     like $new_uptime, qr/^\d+(\.\d+)?$/, 'uptime looks right';
     cmp_ok $new_uptime, '>=', $uptime+$SLEEP_TIME, 'time passes properly';
+
+    my $pretty_uptime = `uptime`;
+    my ($up_days) = $pretty_uptime =~ /up (\d+) days?/;
+    is (int($uptime / (60*60*24)), $up_days, 'uptime matches /bin/uptime');
 }
 
 
