@@ -3,7 +3,7 @@ package Unix::Uptime;
 use warnings;
 use strict;
 
-our $VERSION='0.1';
+our $VERSION='0.2';
 
 my %modules = (
     freebsd => 'FreeBSD',
