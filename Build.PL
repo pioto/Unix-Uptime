@@ -1,7 +1,7 @@
 use strict;
 use warnings;
 
-use Module::Build;
+use Module::Build 0.28;
 
 # This is so that I can automagically generate the Changes file from
 # git.
