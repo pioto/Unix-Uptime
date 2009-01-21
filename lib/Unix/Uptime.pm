@@ -10,7 +10,8 @@ my %modules = (
     linux   => 'Linux',
 );
 
-my $module = $modules{$^O};
+my $module = $modules{$^O}
+    or die "Operating system type $^O is currently unupported";
 
 require "Unix/Uptime/$module.pm";
 our @ISA = ("Unix::Uptime::$module");
