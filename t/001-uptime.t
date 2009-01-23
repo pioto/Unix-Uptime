@@ -22,6 +22,7 @@ my $SLEEP_TIME = 2;
 
     my $pretty_uptime = `uptime`;
     my ($up_days) = $pretty_uptime =~ /up (\d+) days?/;
+    $up_days ||= 0;
     is (int($uptime / (60*60*24)), $up_days, 'uptime matches /bin/uptime');
 }
 
@@ -41,6 +42,7 @@ my $SLEEP_TIME = 2;
 
     my $pretty_uptime = `uptime`;
     my ($up_days) = $pretty_uptime =~ /up (\d+) days?/;
+    $up_days ||= 0;
     is (int($uptime / (60*60*24)), $up_days, 'uptime matches /bin/uptime');
 }
 
