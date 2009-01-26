@@ -8,6 +8,8 @@ our $VERSION='0.2';
 my %modules = (
     freebsd => 'FreeBSD',
     linux   => 'Linux',
+    openbsd => 'BSD',
+    darwin  => 'BSD',
 );
 
 my $module = $modules{$^O}
