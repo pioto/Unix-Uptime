@@ -7,16 +7,21 @@ sub uptime {
     
     my $boottime = `sysctl kern.boottime`;
     my ($boot_seconds,$boot_useconds) = $boottime =~ /\s+sec\s+=\s+(\d+),\s+usec\s+=\s+(\d+)/;
-    my $uptime;
-    if ($class->want_hires()) {
-        my $time = Time::HiRes::gettimeofday();
-        my $boot_time = $boot_seconds + ($boot_useconds * (10.0**-6));
-        $uptime = $time - $boot_time;
-    } else {
-        my $time = time();
-        $uptime = $time - $boot_seconds;
+    my $time = Time::HiRes::gettimeofday();
+    my $boot_time = $boot_seconds + ($boot_useconds * (10.0**-6));
+    return $time - $boot_time;
+}
+
+sub uptime_hires {
+    my $class = shift;
+
+    unless ($class->want_hires()) {
+        die "uptime_hires: you need to import Unix::Uptime with ':hires'";
     }
-    return $uptime;
+
+    my $boottime = `sysctl kern.boottime`;
+    my ($boot_seconds,$boot_useconds) = $boottime =~ /\s+sec\s+=\s+(\d+),\s+usec\s+=\s+(\d+)/;
+    return time() - $boot_seconds;
 }
 
 sub load_hires {

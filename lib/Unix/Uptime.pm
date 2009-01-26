@@ -52,7 +52,7 @@ different *NIX architectures
   # "HiRes" mode
   use Unix::Uptime qw(:hires);
 
-  my $uptime = Unix::Uptime->uptime(); # 2345.123593
+  my $uptime = Unix::Uptime->uptime_hires(); # 2345.123593
 
 =head1 DESCRIPTION
 
@@ -81,6 +81,13 @@ The following static (class) methods are available:
 This takes no arguments, and simply returns the number of seconds this
 system has been running. Depending on the operating system, this could
 be a whole integer, or a floating point number.
+
+=head2 uptime_hires()
+
+This is only available if the C<:hires> import tag is used. It returns
+the system uptime with a greater resolution than one second on supported
+platforms. On some platforms, its results may not be any more precise
+than C<uptime()>, though.
 
 =head1 SEE ALSO
 
