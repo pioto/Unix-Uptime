@@ -3,7 +3,7 @@ package Unix::Uptime;
 use warnings;
 use strict;
 
-our $VERSION='0.2';
+our $VERSION='0.3';
 
 my %modules = (
     freebsd => 'FreeBSD',
@@ -63,9 +63,9 @@ the current system uptime, in seconds. It was born out of a desire to do
 this on non-Linux systems, without SNMP. If you want to use SNMP, there
 are pleanty of modules on CPAN already.
 
-Currently, this module just supports getting the uptime on Linux and
-FreeBSD. It should be easy enough to add support for other operating
-systems, though.
+Currently, this module just supports getting the uptime on Linux,
+FreeBSD, Darwin (Mac OS X), and OpenBSD. It should be easy enough to add
+support for other operating systems, though.
 
 =head1 OPTIONS
 

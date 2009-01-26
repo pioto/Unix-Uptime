@@ -1,0 +1,2 @@
+This is a simple module that allows you to get the current system
+uptime, in seconds. See the Unix::Uptime perldoc for more information.
