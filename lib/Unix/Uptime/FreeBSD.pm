@@ -7,9 +7,7 @@ sub uptime {
     
     my $boottime = `sysctl kern.boottime`;
     my ($boot_seconds,$boot_useconds) = $boottime =~ /\s+sec\s+=\s+(\d+),\s+usec\s+=\s+(\d+)/;
-    my $time = Time::HiRes::gettimeofday();
-    my $boot_time = $boot_seconds + ($boot_useconds * (10.0**-6));
-    return $time - $boot_time;
+    return time() - $boot_seconds;
 }
 
 sub uptime_hires {
@@ -21,7 +19,9 @@ sub uptime_hires {
 
     my $boottime = `sysctl kern.boottime`;
     my ($boot_seconds,$boot_useconds) = $boottime =~ /\s+sec\s+=\s+(\d+),\s+usec\s+=\s+(\d+)/;
-    return time() - $boot_seconds;
+    my $time = Time::HiRes::gettimeofday();
+    my $boot_time = $boot_seconds + ($boot_useconds * (10.0**-6));
+    return $time - $boot_time;
 }
 
 sub load_hires {
