@@ -58,12 +58,23 @@ my $build = $class->new(
     module_name     => 'Unix::Uptime',
     license         => 'perl',
     sign            => 1,
+    configure_requires  => {
+        'Module::Build' => 0.28,
+    },
     build_requires  => {
         'Module::Build' => 0.28,
+    },
+    requires => {
+        ($^O =~ /^(darwin|openbsd)$/ ? ('DateTime::Format::Strptime' => 0) : ()),
+    },
+    recommends => {
+        ($^O =~ /^(freebsd)$/ ? ('Time::HiRes' => 0) : ()),
     },
     meta_merge => {
         resources => {
             repository => 'http://git.pioto.org/gitweb/Unix-Uptime.git',
+            license => 'http://dev.perl.org/licenses/',
+            bugtracker => 'http://rt.cpan.org/NoAuth/Bugs.html?Dist=Unix-Uptime',
         },
     },
 );

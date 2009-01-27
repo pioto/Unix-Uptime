@@ -3,7 +3,6 @@ package Unix::Uptime::BSD;
 use warnings;
 use strict;
 
-use DateTime;
 use DateTime::Format::Strptime;
 
 sub uptime {
