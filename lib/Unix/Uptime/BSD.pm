@@ -27,3 +27,18 @@ sub uptime {
 no warnings qw(once);
 *uptime_hires = \&uptime;
 
+1;
+
+__END__
+
+=head1 NAME
+
+Unix::Uptime::BSD - BSD implementation of Unix::Uptime (for Darwin and OpenBSD)
+
+=head1 SEE ALSO
+
+L<Unix::Uptime>
+
+=cut
+
+# vim: set ft=perl sw=4 sts=4 et :

@@ -31,3 +31,17 @@ sub load_hires {
 }
 
 1;
+
+__END__
+
+=head1 NAME
+
+Unix::Uptime::FreeBSD - FreeBSD implementation of Unix::Uptime
+
+=head1 SEE ALSO
+
+L<Unix::Uptime>
+
+=cut
+
+# vim: set ft=perl sw=4 sts=4 et :
