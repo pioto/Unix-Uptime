@@ -1,5 +1,11 @@
 package Unix::Uptime::Linux;
 
+use warnings;
+use strict;
+
+our $VERSION='0.30_01';
+$VERSION = eval $VERSION;
+
 sub uptime {
     my $class = shift;
     open my $proc_uptime, '<', '/proc/uptime'

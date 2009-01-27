@@ -3,7 +3,8 @@ package Unix::Uptime;
 use warnings;
 use strict;
 
-our $VERSION='0.3';
+our $VERSION='0.30_01';
+$VERSION = eval $VERSION;
 
 my %modules = (
     freebsd => 'FreeBSD',
@@ -67,10 +68,6 @@ Currently, this module just supports getting the uptime on Linux,
 FreeBSD, Darwin (Mac OS X), and OpenBSD. It should be easy enough to add
 support for other operating systems, though.
 
-B<NOTE:> This module is still a work in progress, under fairly heavy
-development.  While I think the final API should be mostly finalized at
-this point, I won't commit to an API freeze until version 1.0.
-
 =head1 OPTIONS
 
 While this module doesn't provide any functions for exporting, if the
@@ -121,8 +118,14 @@ L<Win32::Uptime> for Win32.
 
 =head1 BUGS
 
-This currently doesn't support more than Linux and FreeBSD.
-Contributions for other operating systems would be welcome.
+This currently doesn't support more than Linux, FreeBSD, Darwin (Mac OS
+X), and OpenBSD. Contributions for other operating systems would be welcome.
+
+=head1 CAVEATS
+
+B<NOTE:> This module is still a work in progress, under fairly heavy
+development.  While I think the final API should be mostly finalized at
+this point, I won't commit to an API freeze until version 1.0.
 
 =head1 CONTRIBUTING
 

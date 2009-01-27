@@ -3,6 +3,9 @@ package Unix::Uptime::BSD;
 use warnings;
 use strict;
 
+our $VERSION='0.30_01';
+$VERSION = eval $VERSION;
+
 use DateTime::Format::Strptime;
 
 sub uptime {
