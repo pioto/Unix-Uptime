@@ -14,7 +14,7 @@ my %modules = (
 );
 
 my $module = $modules{$^O}
-    or die "Operating system type $^O is currently unupported";
+    or die "Operating system type $^O is currently unsupported";
 
 require "Unix/Uptime/$module.pm";
 our @ISA = ("Unix::Uptime::$module");
