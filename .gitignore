@@ -7,3 +7,4 @@ MANIFEST
 Unix-Uptime-*.tar*
 Unix-Uptime-*.*/
 *.bak
+cover_db/
