@@ -11,6 +11,7 @@ my %modules = (
     linux   => 'Linux',
     openbsd => 'BSD',
     darwin  => 'BSD',
+    netbsd  => 'BSD',
 );
 
 my $module = $modules{$^O}

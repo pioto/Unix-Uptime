@@ -18,6 +18,8 @@ sub uptime {
     #   kern.boottime=Mon Jan  5 14:00:50 2009
     # Darwin:
     #   kern.boottime = Wed Jan 21 12:49:52 2009
+    # NetBSD:
+    #   kern.boottime = Mon Jan  5 15:30:35 2009
     my $strp = DateTime::Format::Strptime->new(
         pattern => '%a%t%b%t%d%t%T%t%Y',
     );
