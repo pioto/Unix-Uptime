@@ -3,7 +3,7 @@ package Unix::Uptime::BSD;
 use warnings;
 use strict;
 
-our $VERSION='0.30_02';
+our $VERSION='0.31_01';
 $VERSION = eval $VERSION;
 
 use DateTime::Format::Strptime;
@@ -37,7 +37,7 @@ __END__
 
 =head1 NAME
 
-Unix::Uptime::BSD - BSD implementation of Unix::Uptime (for Darwin and OpenBSD)
+Unix::Uptime::BSD - BSD implementation of Unix::Uptime (for Darwin, OpenBSD, and NetBSD)
 
 =head1 SEE ALSO
 

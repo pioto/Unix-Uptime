@@ -3,7 +3,7 @@ package Unix::Uptime;
 use warnings;
 use strict;
 
-our $VERSION='0.30_02';
+our $VERSION='0.31_01';
 $VERSION = eval $VERSION;
 
 my %modules = (
@@ -66,7 +66,7 @@ this on non-Linux systems, without SNMP. If you want to use SNMP, there
 are pleanty of modules on CPAN already.
 
 Currently, this module just supports getting the uptime on Linux,
-FreeBSD, Darwin (Mac OS X), and OpenBSD. It should be easy enough to add
+FreeBSD, Darwin (Mac OS X), OpenBSD, and NetBSD. It should be easy enough to add
 support for other operating systems, though.
 
 =head1 OPTIONS
@@ -105,7 +105,7 @@ No additional requirements.
 
 Requires Time::HiRes
 
-=item Darwin, OpenBSD
+=item Darwin, OpenBSD, NetBSD
 
 No more precise than uptime()
 
@@ -120,7 +120,8 @@ L<Win32::Uptime> for Win32.
 =head1 BUGS
 
 This currently doesn't support more than Linux, FreeBSD, Darwin (Mac OS
-X), and OpenBSD. Contributions for other operating systems would be welcome.
+X), OpenBSD, and NetBSD. Contributions for other operating systems would
+be welcome.
 
 =head1 CAVEATS
 

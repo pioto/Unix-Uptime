@@ -65,7 +65,7 @@ my $build = $class->new(
         'Module::Build' => 0.28,
     },
     requires => {
-        ($^O =~ /^(darwin|openbsd)$/ ? ('DateTime::Format::Strptime' => 0) : ()),
+        ($^O =~ /^(darwin|(open|net)bsd)$/ ? ('DateTime::Format::Strptime' => 0) : ()),
     },
     recommends => {
         ($^O =~ /^(freebsd)$/ ? ('Time::HiRes' => 0) : ()),
