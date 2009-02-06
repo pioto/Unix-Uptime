@@ -2,7 +2,15 @@
 use warnings;
 use strict;
 
-use Test::More tests => 6;
+use Test::More;
+
+if ($^O =~ /^(darwin|(open|net)bsd)$/) {
+    plan skip_all => "hires mode not supported on Darwin, OpenBSD, or NetBSD";
+} elsif ($^O =~ /^freebsd$/ && !eval { require Time::HiRes } && $@) {
+    plan skip_all => "hires mode on FreeBSD requires Time::HiRes";
+} else {
+    plan tests => 6;
+}
 
 use Unix::Uptime qw(:hires);
 
