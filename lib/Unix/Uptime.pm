@@ -3,7 +3,7 @@ package Unix::Uptime;
 use warnings;
 use strict;
 
-our $VERSION='0.32';
+our $VERSION='0.3201';
 $VERSION = eval $VERSION;
 
 my %modules = (
