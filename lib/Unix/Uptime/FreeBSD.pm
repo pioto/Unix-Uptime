@@ -9,7 +9,8 @@ $VERSION = eval $VERSION;
 sub uptime {
     my $class = shift;
     
-    my $boottime = `/sbin/sysctl kern.boottime`;
+    $ENV{PATH} .= ':/usr/local/sbin:/usr/sbin:/sbin';
+    my $boottime = `sysctl kern.boottime`;
     my ($boot_seconds,$boot_useconds) = $boottime =~ /\s+sec\s+=\s+(\d+),\s+usec\s+=\s+(\d+)/;
     return time() - $boot_seconds;
 }

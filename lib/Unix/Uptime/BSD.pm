@@ -11,7 +11,8 @@ use DateTime::Format::Strptime;
 sub uptime {
     my $class = shift;
 
-    my $boottime = `/sbin/sysctl kern.boottime`;
+    $ENV{PATH} .= ':/usr/local/sbin:/usr/sbin:/sbin';
+    my $boottime = `sysctl kern.boottime`;
 
     $boottime =~ s/^\s*kern\.boottime\s*=\s*//;
     # OpenBSD:
