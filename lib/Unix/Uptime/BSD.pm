@@ -3,7 +3,7 @@ package Unix::Uptime::BSD;
 use warnings;
 use strict;
 
-our $VERSION='0.33_01';
+our $VERSION='0.33_02';
 $VERSION = eval $VERSION;
 
 use DateTime::Format::Strptime;

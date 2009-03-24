@@ -3,7 +3,7 @@ package Unix::Uptime::Linux;
 use warnings;
 use strict;
 
-our $VERSION='0.33_01';
+our $VERSION='0.33_02';
 $VERSION = eval $VERSION;
 
 sub uptime {

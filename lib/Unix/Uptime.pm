@@ -3,7 +3,7 @@ package Unix::Uptime;
 use warnings;
 use strict;
 
-our $VERSION='0.33_01';
+our $VERSION='0.33_02';
 $VERSION = eval $VERSION;
 
 my %modules = (
@@ -68,7 +68,7 @@ the current system uptime, in seconds. It was born out of a desire to do
 this on non-Linux systems, without SNMP. If you want to use SNMP, there
 are pleanty of modules on CPAN already.
 
-Additionally, since version 0.33_01, it supports retrieving the load
+Additionally, since version 0.33_02, it supports retrieving the load
 average.
 
 Currently, this module just supports Linux, FreeBSD, Darwin (Mac OS X),
