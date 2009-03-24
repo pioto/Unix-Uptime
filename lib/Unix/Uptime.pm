@@ -3,7 +3,7 @@ package Unix::Uptime;
 use warnings;
 use strict;
 
-our $VERSION='0.3201';
+our $VERSION='0.33_01';
 $VERSION = eval $VERSION;
 
 my %modules = (
@@ -43,8 +43,8 @@ __END__
 
 =head1 NAME
 
-Unix::Uptime - Determine the current uptime, in seconds, across
-different *NIX architectures
+Unix::Uptime - Determine the current uptime, in seconds, and load
+averages, across different *NIX architectures
 
 =head1 SYNOPSIS
 
@@ -58,6 +58,9 @@ different *NIX architectures
 
   my $uptime = Unix::Uptime->uptime_hires(); # 2345.123593
 
+  # Load Average
+  my ($load1, $load5, $load15) = Unix::Uptime->load(); # (1.0, 2.0, 0.0)
+
 =head1 DESCRIPTION
 
 This is a rather simple module that abstracts the task of figuring out
@@ -65,9 +68,12 @@ the current system uptime, in seconds. It was born out of a desire to do
 this on non-Linux systems, without SNMP. If you want to use SNMP, there
 are pleanty of modules on CPAN already.
 
-Currently, this module just supports getting the uptime on Linux,
-FreeBSD, Darwin (Mac OS X), OpenBSD, and NetBSD. It should be easy enough to add
-support for other operating systems, though.
+Additionally, since version 0.33_01, it supports retrieving the load
+average.
+
+Currently, this module just supports Linux, FreeBSD, Darwin (Mac OS X),
+OpenBSD, and NetBSD. It should be easy enough to add support for other
+operating systems, though.
 
 =head1 OPTIONS
 
@@ -110,6 +116,11 @@ Requires Time::HiRes
 No more precise than uptime()
 
 =back
+
+=head2 load()
+
+This returns an array of the load averages for the last 1, 5, and 15
+minutes. The degree of precision varies from system to system.
 
 =head1 SEE ALSO
 

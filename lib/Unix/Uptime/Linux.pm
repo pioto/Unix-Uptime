@@ -3,7 +3,7 @@ package Unix::Uptime::Linux;
 use warnings;
 use strict;
 
-our $VERSION='0.3201';
+our $VERSION='0.33_01';
 $VERSION = eval $VERSION;
 
 sub uptime {
@@ -29,6 +29,17 @@ sub uptime_hires {
     my $line = <$proc_uptime>;
     my ($uptime) = $line =~ /^(\d+(\.\d+)?)/;
     return $uptime;
+}
+
+sub load {
+    my $class = shift;
+
+    open my $proc_loadavg, '<', '/proc/loadavg'
+        or die "Failed to open /proc/loadavg: $!";
+
+    my $line = <$proc_loadavg>;
+    my ($load1, $load5, $load15) = $line =~ /^(\d+\.?\d*)\s+(\d+\.?\d*)\s+(\d+\.?\d*)/;
+    return ($load1, $load5, $load15);
 }
 
 1;

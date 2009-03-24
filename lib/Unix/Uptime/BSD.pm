@@ -3,7 +3,7 @@ package Unix::Uptime::BSD;
 use warnings;
 use strict;
 
-our $VERSION='0.3201';
+our $VERSION='0.33_01';
 $VERSION = eval $VERSION;
 
 use DateTime::Format::Strptime;
@@ -31,6 +31,8 @@ sub uptime {
 
 no warnings qw(once);
 *uptime_hires = \&uptime;
+
+use base 'Unix::Uptime::BSD::Load';
 
 1;
 

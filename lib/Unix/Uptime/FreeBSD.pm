@@ -3,7 +3,7 @@ package Unix::Uptime::FreeBSD;
 use warnings;
 use strict;
 
-our $VERSION='0.3201';
+our $VERSION='0.33_01';
 $VERSION = eval $VERSION;
 
 sub uptime {
@@ -34,6 +34,8 @@ sub load_hires {
 
     require Time::HiRes;
 }
+
+use base 'Unix::Uptime::BSD::Load';
 
 1;
 
