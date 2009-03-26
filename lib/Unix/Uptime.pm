@@ -7,11 +7,12 @@ our $VERSION='0.33_02';
 $VERSION = eval $VERSION;
 
 my %modules = (
-    freebsd => 'FreeBSD',
-    linux   => 'Linux',
-    openbsd => 'BSD',
-    darwin  => 'BSD',
-    netbsd  => 'BSD',
+    freebsd   => 'FreeBSD',
+    dragonfly => 'FreeBSD',
+    linux     => 'Linux',
+    openbsd   => 'BSD',
+    darwin    => 'BSD',
+    netbsd    => 'BSD',
 );
 
 my $module = $modules{$^O}
