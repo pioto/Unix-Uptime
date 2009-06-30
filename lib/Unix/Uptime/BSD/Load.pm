@@ -9,7 +9,7 @@ $VERSION = eval $VERSION;
 sub load {
     my $class = shift;
 
-    $ENV{PATH} .= ':/usr/local/sbin:/usr/sbin:/sbin';
+    local $ENV{PATH} .= ':/usr/local/sbin:/usr/sbin:/sbin';
     my $loadavg = `sysctl vm.loadavg`;
 
     # OpenBSD:

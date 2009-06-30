@@ -9,7 +9,7 @@ $VERSION = eval $VERSION;
 sub uptime {
     my $class = shift;
     
-    $ENV{PATH} .= ':/usr/local/sbin:/usr/sbin:/sbin';
+    local $ENV{PATH} .= ':/usr/local/sbin:/usr/sbin:/sbin';
     my $boottime = `sysctl kern.boottime`;
     my ($boot_seconds,$boot_useconds) = $boottime =~ /\s+sec\s+=\s+(\d+),\s+[un]sec\s+=\s+(\d+)/;
     return time() - $boot_seconds;
@@ -22,7 +22,8 @@ sub uptime_hires {
         die "uptime_hires: you need to import Unix::Uptime with ':hires'";
     }
 
-    my $boottime = `/sbin/sysctl kern.boottime`;
+    local $ENV{PATH} .= ':/usr/local/sbin:/usr/sbin:/sbin';
+    my $boottime = `sysctl kern.boottime`;
     my ($boot_seconds,$boot_useconds) = $boottime =~ /\s+sec\s+=\s+(\d+),\s+[un]sec\s+=\s+(\d+)/;
     my $time = Time::HiRes::gettimeofday();
     # this isn't strictly correct on dfly. but i don't think it actually
