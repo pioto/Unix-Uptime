@@ -1,3 +1,5 @@
+use lib inc; use Devel::AssertOS qw(Linux FreeBSD DragonflyBSD OpenBSD MacOSX NetBSD);
+
 use strict;
 use warnings;
 
