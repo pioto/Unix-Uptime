@@ -33,8 +33,9 @@ sub import {
     my $class = shift;
     if (grep {$_ eq ':hires'} @_) {
         $hires = 1;
-        "Unix::Uptime::$module"->can('load_hires')
-            and "Unix::Uptime::$module"->load_hires();
+        $module = "Unix::Uptime::$module";
+        $module->can('load_hires')
+            and $module->load_hires();
     }
 }
 
