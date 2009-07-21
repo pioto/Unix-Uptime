@@ -20,7 +20,7 @@ like $new_uptime, qr/^\d+$/, 'uptime looks right';
 cmp_ok $new_uptime, '>=', $uptime+$SLEEP_TIME, 'time passes properly';
 
 my $pretty_uptime = `uptime`;
-my ($up_days) = $pretty_uptime =~ /up (\d+) days?/
+my ($up_days) = $pretty_uptime =~ /up\s+(\d+)\s+days?/
     or diag "\$ uptime\n$pretty_uptime";
 $up_days ||= 0;
 is (int($uptime / (60*60*24)), $up_days, 'uptime matches /bin/uptime');
