@@ -1,0 +1,47 @@
+Changes for Unix::Uptime
+
+master
+    - More internal cleaning.
+    - Fix load() tests for loads > 10.
+
+0.34  Tue Jun 30 20:04:01 EST 2009
+    - Don't pollute $ENV{PATH}.
+    - Support for DragonFly BSD.
+    - Internal cleanups and improved diagnostics.
+
+0.33_02  Tue Mar 24 19:17:52 EST 2009
+    - 0.33_01 wasn't built properly. Re-released & bumped.
+
+0.33_01  Tue Mar 24 19:01:47 EST 2009
+    - Initial load() implementation, for getting the 1, 5, and 15 minute
+      load averages.
+
+0.3201  Thu Feb 12 01:33:29 EST 2009
+    - Another attempt to fix sysctl path handling for *BSD.
+
+0.32  Tue Feb 10 19:52:09 EST 2009
+    - Attempt to fix path handling for *BSD.
+    - Skip tests when we're missing modules.
+
+0.31_01  Sun Feb  1 00:21:31 EST 2009
+    - Fix dependencies for NetBSD.
+
+0.30_02  Sat Jan 31 13:34:04 EST 2009
+    - Initial support for NetBSD.
+
+0.30_01  Tue Jan 27 01:42:32 EST 2009
+    - Some internal cleanup.
+
+0.3  Mon Jan 26 18:29:11 EST 2009
+    - Initial support for OpenBSD, Darwin.
+    - Add uptime_hires() for getting a "HiRes" uptime. uptime() is just
+      for second granularity.
+
+0.2  Tue Jan 20 01:43:36 EST 2009
+    - "HiRes" mode.
+    - Fix a scalar/list context bug.
+
+0.1  Mon Dec  8 16:01:51 EST 2008
+    - Initial public release.
+    - Support for FreeBSD, Linux.
+
