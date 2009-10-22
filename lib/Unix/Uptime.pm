@@ -23,7 +23,7 @@ our @ISA = ("Unix::Uptime::$module");
 
 my $hires;
 
-sub want_hires {
+sub _want_hires {
     my $class = shift;
 
     return $hires;
@@ -40,8 +40,6 @@ sub import {
 }
 
 1;
-
-__END__
 
 =head1 NAME
 
@@ -90,12 +88,12 @@ simply be whole seconds.
 
 The following static (class) methods are available:
 
-=head2 uptime()
+=head2 uptime
 
 This takes no arguments, and simply returns the number of seconds this
 system has been running. This will always be an integer.
 
-=head2 uptime_hires()
+=head2 uptime_hires
 
 This is only available if the C<:hires> import tag is used. It returns
 the system uptime with a greater resolution than one second on supported
@@ -119,7 +117,7 @@ No more precise than uptime()
 
 =back
 
-=head2 load()
+=head2 load
 
 This returns an array of the load averages for the last 1, 5, and 15
 minutes. The degree of precision varies from system to system.

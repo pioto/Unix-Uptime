@@ -18,7 +18,7 @@ sub uptime {
 sub uptime_hires {
     my $class = shift;
 
-    unless ($class->want_hires()) {
+    unless ($class->_want_hires()) {
         die "uptime_hires: you need to import Unix::Uptime with ':hires'";
     }
 
