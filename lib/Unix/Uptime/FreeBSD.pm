@@ -3,7 +3,7 @@ package Unix::Uptime::FreeBSD;
 use warnings;
 use strict;
 
-our $VERSION='0.34';
+our $VERSION='0.36';
 $VERSION = eval $VERSION;
 
 sub uptime {

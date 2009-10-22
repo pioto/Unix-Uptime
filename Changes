@@ -1,6 +1,6 @@
 Changes for Unix::Uptime
 
-master
+0.36  Thu Oct 22 00:07:06 EDT 2009
     - More internal cleaning.
     - Fix load() tests for loads > 10.
 
