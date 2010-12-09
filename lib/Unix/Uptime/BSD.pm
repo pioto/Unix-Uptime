@@ -6,33 +6,53 @@ use strict;
 our $VERSION='0.37';
 $VERSION = eval $VERSION;
 
-use DateTime::Format::Strptime;
-
 sub uptime {
     my $class = shift;
 
     local $ENV{PATH} .= ':/usr/local/sbin:/usr/sbin:/sbin';
-    my $boottime = `sysctl kern.boottime`;
+    my $raw_boottime = `sysctl -b kern.boottime`;
 
-    $boottime =~ s/^\s*kern\.boottime\s*=\s*//;
-    # OpenBSD:
-    #   kern.boottime=Mon Jan  5 14:00:50 2009
-    # Darwin:
-    #   kern.boottime = Wed Jan 21 12:49:52 2009
-    # NetBSD:
-    #   kern.boottime = Mon Jan  5 15:30:35 2009
-    my $strp = DateTime::Format::Strptime->new(
-        pattern => '%a%t%b%t%d%t%T%t%Y',
-    );
-    my $dt = $strp->parse_datetime($boottime)
-        or die "Failed to parse kern.boottime: ",$strp->errstr;
-    return time() - $dt->epoch();
+    my ($boot_seconds, $boot_useconds) = unpack("ll", $raw_boottime);
+
+    return (time() - $boot_seconds);
 }
 
-no warnings qw(once);
-*uptime_hires = \&uptime;
+sub uptime_hires {
+    my $class = shift;
 
-use base 'Unix::Uptime::BSD::Load';
+    local $ENV{PATH} .= ':/usr/local/sbin:/usr/sbin:/sbin';
+    my $raw_boottime = `sysctl -b kern.boottime`;
+
+    my ($boot_seconds, $boot_useconds) = unpack("ll", $raw_boottime);
+    my $time = Time::HiRes::gettimeofday();
+
+    # this isn't strictly correct on dfly. but i don't think it actually
+    # uses a real nsec value, so that's ok.
+    my $boot_time = $boot_seconds + ($boot_useconds * (10.0**-6));
+    return ($time - $boot_time);
+}
+
+sub load {
+    my $class = shift;
+
+    local $ENV{PATH} .= ':/usr/local/sbin:/usr/sbin:/sbin';
+    my $loadavg = `sysctl vm.loadavg`;
+
+    # OpenBSD:
+    #   vm.loadavg=2.54 2.47 2.48
+    # FreeBSD:
+    #   vm.loadavg: { 0.53 0.24 0.19 }
+
+    my ($load1, $load5, $load15) = $loadavg =~ /vm\.loadavg\s*[:=]\s*\{?\s*(\d+\.?\d*)\s+(\d+\.?\d*)\s+(\d+\.?\d*)/;
+
+    return ($load1, $load5, $load15);
+}
+
+sub load_hires {
+    my $class = shift;
+
+    require Time::HiRes;
+}
 
 1;
 

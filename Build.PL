@@ -15,11 +15,8 @@ my $build = Module::Build->new(
     build_requires  => {
         'Module::Build' => 0.28,
     },
-    requires => {
-        ($^O =~ /^(darwin|(open|net)bsd)$/ ? ('DateTime::Format::Strptime' => 0) : ()),
-    },
     recommends => {
-        ($^O =~ /^(freebsd)$/ ? ('Time::HiRes' => 0) : ()),
+        ($^O =~ /^(?:darwin|(?:free|open|net)bsd)$/ ? ('Time::HiRes' => 0) : ()),
     },
     meta_merge => {
         resources => {

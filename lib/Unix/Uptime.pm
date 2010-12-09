@@ -7,8 +7,8 @@ our $VERSION='0.37';
 $VERSION = eval $VERSION;
 
 my %modules = (
-    freebsd   => 'FreeBSD',
-    dragonfly => 'FreeBSD',
+    freebsd   => 'BSD',
+    dragonfly => 'BSD',
     linux     => 'Linux',
     openbsd   => 'BSD',
     darwin    => 'BSD',
