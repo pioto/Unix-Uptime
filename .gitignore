@@ -1,4 +1,5 @@
 .*.swp
+.swp
 Build
 _build
 blib
@@ -9,3 +10,5 @@ Unix-Uptime-*.tar*
 Unix-Uptime-*.*/
 *.bak
 cover_db/
+nytprof/
+nytprof.out
