@@ -5,9 +5,7 @@ use strict;
 use Test::More;
 
 BEGIN {
-    if ($^O =~ /^(darwin|(open|net)bsd)$/) {
-        plan skip_all => "hires mode not supported on Darwin, OpenBSD, or NetBSD";
-    } elsif ($^O =~ /^freebsd$/ && !eval { require Time::HiRes } && $@) {
+    if ($^O =~ /^(?:darwin|(?:free|open|net)bsd)$/ && !eval { require Time::HiRes } && $@) {
         plan skip_all => "hires mode on FreeBSD requires Time::HiRes";
     } else {
         plan tests => 6;
