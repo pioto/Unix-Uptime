@@ -10,5 +10,7 @@ Unix-Uptime-*.tar*
 _build
 blib
 cover_db/
+lib/Unix/Uptime/BSD/XS.c
+lib/Unix/Uptime/BSD/XS.o
 nytprof.out
 nytprof/

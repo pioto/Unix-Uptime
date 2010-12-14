@@ -5,6 +5,8 @@ use warnings;
 
 use Module::Build 0.28;
 
+my $IS_BSD = $^O =~ /^(?:darwin|(?:free|open|net)bsd)$/;
+
 my $build = Module::Build->new(
     module_name     => 'Unix::Uptime',
     license         => 'perl',
@@ -14,9 +16,10 @@ my $build = Module::Build->new(
     },
     build_requires  => {
         'Module::Build' => 0.28,
+        ($IS_BSD ? ('ExtUtils::CBuilder' => 0) : ()),
     },
     recommends => {
-        ($^O =~ /^(?:darwin|(?:free|open|net)bsd)$/ ? ('Time::HiRes' => 0) : ()),
+        ($IS_BSD ? ('Time::HiRes' => 0) : ()),
     },
     meta_merge => {
         resources => {

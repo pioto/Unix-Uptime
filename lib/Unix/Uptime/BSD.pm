@@ -3,27 +3,41 @@ package Unix::Uptime::BSD;
 use warnings;
 use strict;
 
+my $HAVE_XS = eval { require Unix::Uptime::BSD::XS; };
+
 our $VERSION='0.37';
 $VERSION = eval $VERSION;
 
 sub uptime {
     my $class = shift;
 
+    my ($boot_seconds, $boot_useconds) = $HAVE_XS
+        ? $class->_boottime_xs()
+        : $class->_boottime_sysctl_b();
+
+    return (time() - $boot_seconds);
+}
+
+sub _boottime_sysctl_b {
     local $ENV{PATH} .= ':/usr/local/sbin:/usr/sbin:/sbin';
     my $raw_boottime = `sysctl -b kern.boottime`;
 
-    my ($boot_seconds, $boot_useconds) = unpack("ll", $raw_boottime);
+    return unpack("ll", $raw_boottime);
+}
 
-    return (time() - $boot_seconds);
+sub _boottime_xs {
+    my $class = shift;
+
+    return Unix::Uptime::BSD::XS::sysctl_kern_boottime();
 }
 
 sub uptime_hires {
     my $class = shift;
 
-    local $ENV{PATH} .= ':/usr/local/sbin:/usr/sbin:/sbin';
-    my $raw_boottime = `sysctl -b kern.boottime`;
+    my ($boot_seconds, $boot_useconds) = $HAVE_XS
+        ? $class->_boottime_xs()
+        : $class->_boottime_sysctl_b();
 
-    my ($boot_seconds, $boot_useconds) = unpack("ll", $raw_boottime);
     my $time = Time::HiRes::gettimeofday();
 
     # this isn't strictly correct on dfly. but i don't think it actually
