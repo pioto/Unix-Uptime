@@ -5,7 +5,7 @@ use warnings;
 
 use Module::Build 0.28;
 
-my $IS_BSD = $^O =~ /^(?:darwin|(?:free|open|net)bsd)$/;
+my $IS_BSD = $^O =~ /^(?:darwin|dragonfly|(?:free|open|net)bsd)$/;
 
 my $build = Module::Build->new(
     module_name     => 'Unix::Uptime',
