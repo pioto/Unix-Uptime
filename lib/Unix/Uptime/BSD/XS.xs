@@ -6,7 +6,11 @@
 #include <sys/param.h>
 #include <sys/resource.h>
 #include <sys/sysctl.h>
+#ifdef __OpenBSD__
+#include <uvm/uvm_param.h>
+#else
 #include <vm/vm_param.h>
+#endif
 
 MODULE = Unix::Uptime::BSD::XS PACKAGE = Unix::Uptime::BSD::XS
 
