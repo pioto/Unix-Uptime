@@ -6,6 +6,8 @@ use warnings;
 use Module::Build 0.28;
 
 my $IS_BSD = $^O =~ /^(?:darwin|dragonfly|(?:free|open|net)bsd)$/;
+my $WANT_XS = $IS_BSD;
+$WANT_XS = 0 if $ENV{NO_XS};
 
 my $build = Module::Build->new(
     module_name     => 'Unix::Uptime',
@@ -16,7 +18,7 @@ my $build = Module::Build->new(
     },
     build_requires  => {
         'Module::Build' => 0.28,
-        ($IS_BSD ? ('ExtUtils::CBuilder' => 0) : ()),
+        ($WANT_XS ? ('ExtUtils::CBuilder' => 0) : ()),
     },
     recommends => {
         ($IS_BSD ? ('Time::HiRes' => 0) : ()),
@@ -29,6 +31,6 @@ my $build = Module::Build->new(
         },
     },
 );
-$build->xs_files({}) unless $IS_BSD;
+$build->xs_files({}) unless $WANT_XS;
 $build->create_build_script();
 
