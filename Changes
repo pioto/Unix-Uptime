@@ -1,5 +1,12 @@
 Changes for Unix::Uptime
 
+0.37  XXXX
+    - Unify support for all BSD derivatives, using XS, and falling back
+      on using the '-b' flag to sysctl, which is a bit more portable
+      than the standard output.
+    - Add a sample script that sorta emulates the output of the
+      uptime(1) command.
+
 0.36  Thu Oct 22 00:07:06 EDT 2009
     - More internal cleaning.
     - Fix load() tests for loads > 10.
