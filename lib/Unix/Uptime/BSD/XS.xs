@@ -6,9 +6,9 @@
 #include <sys/param.h>
 #include <sys/resource.h>
 #include <sys/sysctl.h>
-#ifdef __OpenBSD__
+#if defined(__OpenBSD__)
 #include <uvm/uvm_param.h>
-#else
+#elif !defined(__APPLE__)
 #include <vm/vm_param.h>
 #endif
 
