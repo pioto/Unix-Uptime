@@ -47,6 +47,27 @@ sub uptime_hires {
 sub load {
     my $class = shift;
 
+    my ($load1, $load5, $load15) = $HAVE_XS
+        ? $class->_load_xs()
+        : $class->_load_sysctl();
+
+    return ($load1, $load5, $load15);
+}
+
+sub _load_xs {
+    my $class = shift;
+
+    my ($load1, $load5, $load15, $fscale) = Unix::Uptime::BSD::XS::sysctl_vm_loadavg();
+
+    return (
+        sprintf("%.2f",$load1/$fscale),
+        sprintf("%.2f",$load5/$fscale),
+        sprintf("%.2f",$load15/$fscale));
+}
+
+sub _load_sysctl {
+    my $class = shift;
+
     local $ENV{PATH} .= ':/usr/local/sbin:/usr/sbin:/sbin';
     my $loadavg = `sysctl vm.loadavg`;
 

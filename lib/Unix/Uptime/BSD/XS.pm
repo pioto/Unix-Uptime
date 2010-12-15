@@ -5,7 +5,7 @@ use warnings;
 
 use base 'Exporter';
 
-our @EXPORT = qw(sysctl_kern_boottime);
+our @EXPORT = qw(sysctl_kern_boottime sysctl_vm_loadavg);
 
 our $VERSION='0.37';
 $VERSION = eval $VERSION;
