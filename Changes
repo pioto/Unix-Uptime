@@ -1,6 +1,6 @@
 Changes for Unix::Uptime
 
-0.37  XXXX
+0.37  Tue Dec 14 23:25:05 EST 2010
     - Unify support for all BSD derivatives, using XS, and falling back
       on using the '-b' flag to sysctl, which is a bit more portable
       than the standard output.
