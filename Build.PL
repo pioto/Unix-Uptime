@@ -29,5 +29,6 @@ my $build = Module::Build->new(
         },
     },
 );
+$build->xs_files({}) unless $IS_BSD;
 $build->create_build_script();
 
