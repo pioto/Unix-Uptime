@@ -93,7 +93,7 @@ __END__
 
 =head1 NAME
 
-Unix::Uptime::BSD - BSD implementation of Unix::Uptime (for Darwin, OpenBSD, and NetBSD)
+Unix::Uptime::BSD - BSD implementation of Unix::Uptime (for Darwin, DragonFly, and *BSD)
 
 =head1 SEE ALSO
 

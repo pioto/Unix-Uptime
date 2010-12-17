@@ -15,3 +15,16 @@ XSLoader::load('Unix::Uptime::BSD::XS', $VERSION);
 
 1;
 
+__END__
+
+=head1 NAME
+
+Unix::Uptime::BSD::XS - XS-based BSD implementation of Unix::Uptime (for Darwin, DragonFly, and *BSD)
+
+=head1 SEE ALSO
+
+L<Unix::Uptime>
+
+=cut
+
+# vim: set ft=perl sw=4 sts=4 et :
