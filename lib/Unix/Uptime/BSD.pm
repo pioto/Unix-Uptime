@@ -5,7 +5,7 @@ use strict;
 
 my $HAVE_XS = eval { require Unix::Uptime::BSD::XS; };
 
-our $VERSION='0.37';
+our $VERSION='0.3701';
 $VERSION = eval $VERSION;
 
 sub uptime {

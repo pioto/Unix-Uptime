@@ -1,5 +1,9 @@
 Changes for Unix::Uptime
 
+0.3701 Thu Dec 16 22:40:14 EST 2010
+    - Fix build of XS on NetBSD.
+    - Correctly allocate all the space we need in SP 
+
 0.37  Tue Dec 14 23:25:05 EST 2010
     - Unify support for all BSD derivatives, using XS, and falling back
       on using the '-b' flag to sysctl, which is a bit more portable
