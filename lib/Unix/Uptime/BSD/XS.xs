@@ -8,7 +8,7 @@
 #include <sys/sysctl.h>
 #if defined(__OpenBSD__)
 #include <uvm/uvm_param.h>
-#elif !defined(__APPLE__)
+#elif defined(__FreeBSD__) || defined(__DragonFly__)
 #include <vm/vm_param.h>
 #endif
 
