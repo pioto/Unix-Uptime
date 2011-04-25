@@ -101,6 +101,21 @@ platforms. On some platforms, its results may not be any more precise
 than C<uptime()>, though. On different platforms, this requires
 different additional modules:
 
+=head2 get_uptime_min
+
+This takes no arguments, and simply returns the number of minutes this
+system has been running. This will always be an integer.
+
+=head2 get_uptime_hour
+
+This takes no arguments, and simply returns the number of hours this
+system has been running. This will always be an integer.
+
+=head2 get_uptime_day
+
+This takes no arguments, and simply returns the number of days this
+system has been running. This will always be an integer.
+
 =over 4
 
 =item Linux
