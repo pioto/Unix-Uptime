@@ -1,4 +1,4 @@
-Unix-Uptime is Copyright (C) 2008-2010, Mike Kelly.
+Unix-Uptime is Copyright (C) 2008-2011, Mike Kelly.
 
 This is a simple module that allows you to get the current system
 uptime, in seconds, and the current load average.
