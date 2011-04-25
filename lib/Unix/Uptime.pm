@@ -29,6 +29,27 @@ sub _want_hires {
     return $hires;
 }
 
+sub get_update_min {
+    my $class  = shift;
+    my $uptime = Unix::Uptime->uptime();
+
+    return $uptime / 60 % 60;
+}
+
+sub get_update_hour {
+    my $class  = shift;
+    my $uptime = Unix::Uptime->uptime();
+
+    return $uptime / 3600 % 24;
+}
+
+sub get_update_day {
+    my $class  = shift;
+    my $uptime = Unix::Uptime->uptime();
+
+    return int($uptime / 86400);
+}
+
 sub import {
     my $class = shift;
     if (grep {$_ eq ':hires'} @_) {
