@@ -6,7 +6,8 @@ use warnings;
 use Module::Build 0.28;
 
 my $IS_BSD = $^O =~ /^(?:darwin|dragonfly|(?:free|open|net)bsd)$/;
-my $WANT_XS = $IS_BSD;
+my $IS_LINUX = $^O eq 'linux';
+my $WANT_XS = $IS_BSD || $IS_LINUX;
 $WANT_XS = 0 if $ENV{NO_XS};
 
 my $build = Module::Build->new(
@@ -31,6 +32,14 @@ my $build = Module::Build->new(
         },
     },
 );
-$build->xs_files({}) unless $WANT_XS;
+if ($WANT_XS) {
+    if ($IS_LINUX) {
+        $build->xs_files({'lib/Unix/Uptime/Linux/XS.xs' => 'lib/Unix/Uptime/Linux/XS.xs'});
+    } elsif ($IS_BSD) {
+        $build->xs_files({'lib/Unix/Uptime/BSD/XS.xs' => 'lib/Unix/Uptime/BSD/XS.xs'});
+    }
+} else {
+    $build->xs_files({});
+}
 $build->create_build_script();
 

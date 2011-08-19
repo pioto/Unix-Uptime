@@ -12,5 +12,7 @@ blib
 cover_db/
 lib/Unix/Uptime/BSD/XS.c
 lib/Unix/Uptime/BSD/XS.o
+lib/Unix/Uptime/Linux/XS.c
+lib/Unix/Uptime/Linux/XS.o
 nytprof.out
 nytprof/
