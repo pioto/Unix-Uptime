@@ -7,6 +7,7 @@ use Test::More tests => 9;
 use Unix::Uptime;
 
 ok my ($load1, $load5, $load15) = Unix::Uptime->load(), 'received a load avarage';
+note "load1: $load1; load5: $load5; load15: $load15";
 like $load1, qr/^\d+(\.\d+)?$/, 'load1 looks right';
 like $load5, qr/^\d+(\.\d+)?$/, 'load5 looks right';
 like $load15, qr/^\d+(\.\d+)?$/, 'load15 looks right';
