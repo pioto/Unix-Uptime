@@ -25,7 +25,7 @@ my $build = Module::Build->new(
     },
     meta_merge => {
         resources => {
-            repository => 'http://git.pioto.org/gitweb/Unix-Uptime.git',
+            repository => 'https://github.com/pioto/Unix-Uptime',
             license => 'http://dev.perl.org/licenses/',
             bugtracker => 'http://rt.cpan.org/NoAuth/Bugs.html?Dist=Unix-Uptime',
         },

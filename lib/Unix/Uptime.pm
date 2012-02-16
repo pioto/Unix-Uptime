@@ -143,7 +143,7 @@ this point, I won't commit to an API freeze until version 1.0.
 =head1 CONTRIBUTING
 
 This project is developed using git. The repository may be browsed at:
-L<http://git.pioto.org/gitweb/Unix-Uptime.git>
+L<https://github.com/pioto/Unix-Uptime>
 
 Patches in git-format-patch style are preferred. Either send them to me
 by email, or open an RT ticket
