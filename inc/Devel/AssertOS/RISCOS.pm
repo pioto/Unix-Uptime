@@ -1,10 +1,12 @@
-package Devel::AssertOS::OpenBSD;
+package Devel::AssertOS::RISCOS;
 
 use Devel::CheckOS;
 
 $VERSION = '1.2';
 
-sub os_is { $^O =~ /^openbsd$/i ? 1 : 0; }
+sub os_is { $^O =~ /^riscos$/i ? 1 : 0; }
+
+sub expn { "This is the Acorn operating system, not the MIPS RISC/os system" }
 
 Devel::CheckOS::die_unsupported() unless(os_is());
 

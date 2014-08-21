@@ -1,10 +1,10 @@
-package Devel::AssertOS::OpenBSD;
+package Devel::AssertOS::DGUX;
 
 use Devel::CheckOS;
 
 $VERSION = '1.2';
 
-sub os_is { $^O =~ /^openbsd$/i ? 1 : 0; }
+sub os_is { $^O =~ /^dgux$/i ? 1 : 0; }
 
 Devel::CheckOS::die_unsupported() unless(os_is());
 

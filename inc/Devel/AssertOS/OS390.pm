@@ -1,10 +1,12 @@
-package Devel::AssertOS::OpenBSD;
+package Devel::AssertOS::OS390;
 
 use Devel::CheckOS;
 
 $VERSION = '1.2';
 
-sub os_is { $^O =~ /^openbsd$/i ? 1 : 0; }
+sub os_is { $^O =~ /^os390$/i ? 1 : 0; }
+
+sub expn { "OS390 is also known as z/OS" }
 
 Devel::CheckOS::die_unsupported() unless(os_is());
 
