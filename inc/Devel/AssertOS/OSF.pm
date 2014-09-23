@@ -1,10 +1,12 @@
-package Devel::AssertOS::OpenBSD;
+package Devel::AssertOS::OSF;
 
 use Devel::CheckOS;
 
 $VERSION = '1.2';
 
-sub os_is { $^O =~ /^openbsd$/i ? 1 : 0; }
+sub os_is { $^O =~ /^dec_osf$/i ? 1 : 0; }
+
+sub expn { "OSF is also known as OSF/1, Digital Unix, and Tru64 Unix" }
 
 Devel::CheckOS::die_unsupported() unless(os_is());
 

@@ -1,10 +1,12 @@
-package Devel::AssertOS::OpenBSD;
+package Devel::AssertOS::QNX::v4;
 
 use Devel::CheckOS;
 
-$VERSION = '1.2';
+$VERSION = '1.1';
 
-sub os_is { $^O =~ /^openbsd$/i ? 1 : 0; }
+sub os_is { $^O =~ /^qnx$/i ? 1 : 0; }
+
+sub expn { "The operating system is version 4 of QNX" }
 
 Devel::CheckOS::die_unsupported() unless(os_is());
 
