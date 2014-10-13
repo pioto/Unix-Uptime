@@ -4,7 +4,9 @@
 Build
 MANIFEST
 META.yml
+META.json
 MYMETA.yml
+MYMETA.json
 Unix-Uptime-*.*/
 Unix-Uptime-*.tar*
 _build

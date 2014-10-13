@@ -15,6 +15,7 @@
 \bblibdirs$
 ^MANIFEST\.SKIP$
 ^MYMETA\.yml$
+^MYMETA\.json$
 
 # Avoid Module::Build generated and utility files.
 \bBuild$
