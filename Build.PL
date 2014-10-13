@@ -1,4 +1,4 @@
-use lib inc; use Devel::AssertOS qw(Linux FreeBSD DragonflyBSD OpenBSD MacOSX NetBSD);
+use lib inc; use Devel::AssertOS qw(Cygwin Linux FreeBSD DragonflyBSD OpenBSD MacOSX NetBSD);
 
 use strict;
 use warnings;
@@ -26,7 +26,6 @@ my $build = Module::Build->new(
     meta_merge => {
         resources => {
             repository => 'https://github.com/pioto/Unix-Uptime',
-            license => 'http://dev.perl.org/licenses/',
             bugtracker => 'http://rt.cpan.org/NoAuth/Bugs.html?Dist=Unix-Uptime',
         },
     },

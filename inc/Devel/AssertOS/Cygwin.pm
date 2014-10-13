@@ -1,10 +1,17 @@
-package Devel::AssertOS::OpenBSD;
+package Devel::AssertOS::Cygwin;
 
 use Devel::CheckOS;
 
-$VERSION = '1.2';
+$VERSION = '1.3';
 
-sub os_is { $^O =~ /^openbsd$/i ? 1 : 0; }
+sub os_is { $^O =~ /^cygwin$/i ? 1 : 0; }
+
+sub expn {
+join("\n",
+"The operating system is Microsoft Windows, but perl was built using",
+"the POSIXish API provided by Cygwin"
+)
+}
 
 Devel::CheckOS::die_unsupported() unless(os_is());
 

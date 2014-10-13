@@ -21,3 +21,4 @@ This program is distributed in the hope that it will be
 useful, but without any warranty; without even the implied
 warranty of merchantability or fitness for a particular purpose.
 
+[![Build Status](https://travis-ci.org/pioto/Unix-Uptime.svg?branch=develop)](https://travis-ci.org/pioto/Unix-Uptime)
