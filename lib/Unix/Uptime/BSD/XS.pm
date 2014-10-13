@@ -7,7 +7,7 @@ use base 'Exporter';
 
 our @EXPORT = qw(sysctl_kern_boottime sysctl_vm_loadavg);
 
-our $VERSION='0.3701';
+our $VERSION='0.4000';
 $VERSION = eval $VERSION;
 
 require XSLoader;

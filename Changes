@@ -1,5 +1,13 @@
 Changes for Unix::Uptime
 
+0.4000 Mon Oct 13 15:11:06 EDT 2014
+    - Add support for Cygwin, from Graham Ollis <plicease@cpan.org>.
+    - Fix unit tests running under some non-English locales with
+      different decimal separators, from Graham Ollis
+      <plicease@cpan.org>.
+    - Improve forward-compatibility with Module::Build 0.4200, from
+      Graham Ollis <plicease@cpan.org>.
+
 0.3701 Thu Dec 16 22:40:14 EST 2010
     - Fix build of XS on NetBSD.
     - Correctly allocate all the space we need in SP 
