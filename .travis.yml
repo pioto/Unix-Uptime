@@ -12,3 +12,4 @@ install: true
 os:
   - linux
   - osx
+sudo: false
