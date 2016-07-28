@@ -20,6 +20,9 @@ my $build = Module::Build->new(
         'Module::Build' => 0.28,
         ($WANT_XS ? ('ExtUtils::CBuilder' => 0) : ()),
     },
+    requires => {
+        perl => 5.8,
+    },
     recommends => {
         ($IS_BSD ? ('Time::HiRes' => 0) : ()),
     },
