@@ -14,6 +14,7 @@ my %modules = (
     openbsd   => 'BSD',
     darwin    => 'BSD',
     netbsd    => 'BSD',
+    gnukfreebsd => 'BSD',
     solaris   => 'Solaris',
 );
 
