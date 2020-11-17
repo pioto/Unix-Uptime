@@ -1,3 +1,12 @@
+# UNMAINTAINED
+
+This code is something I haven't used in at least 6 years. I'm no longer
+an active Perl coder, so I'm marking this repository as archived. If you're
+interested in picking up this project, feel free to fork, and reach
+out ot me to discuss handing over maintainership in CPAN, etc.
+
+---
+
 Unix-Uptime is Copyright (C) 2008-2014, Mike Kelly.
 
 This is a simple module that allows you to get the current system
