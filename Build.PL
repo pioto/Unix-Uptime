@@ -6,7 +6,7 @@ use warnings;
 
 use Module::Build 0.28;
 
-my $IS_BSD = $^O =~ /^(?:darwin|dragonfly|(?:free|open|net)bsd)$/;
+my $IS_BSD = $^O =~ /^(?:darwin|dragonfly|(?:gnukfree|free|open|net)bsd)$/;
 my $WANT_XS = $IS_BSD;
 $WANT_XS = 0 if $ENV{NO_XS};
 
